@@ -2,7 +2,7 @@ import ToyComponent from "./ToyComponent";
 import ElementWrapper from "./ElementWrapper";
 import { insertChild } from "./utils";
 import { RENDER_TO_DOM } from "./const";
-
+export {ToyComponent}
 
 export function createElement(type, attributes, ...children) {
   let e;
@@ -26,8 +26,4 @@ export function render(component: ToyComponent, parentElement: HTMLElement) {
   range.setEnd(parentElement, parentElement.childNodes.length)
   range.deleteContents()
   component[RENDER_TO_DOM](range)
-}
-
-export {
-  ToyComponent
 }

@@ -1,4 +1,4 @@
-import {createElement,render,ToyComponent} from './src'
+import {ToyComponent, createElement,render} from './src'
 
 class MyComponent extends ToyComponent{
     render(){
