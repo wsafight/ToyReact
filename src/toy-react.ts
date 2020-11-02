@@ -1,8 +1,3 @@
-/**
- * @author Sky
- *  2020/11/2
- */
-
 class ElementWrapper {
     private root: HTMLElement
 
