@@ -1,5 +1,5 @@
 (() => {
-  // src/toy-react.ts
+  // src/ElementWrapper.ts
   class ElementWrapper {
     constructor(type) {
       this.root = document.createElement(type);
@@ -11,37 +11,21 @@
       this.root.appendChild(component.root);
     }
   }
+  var ElementWrapper_default = ElementWrapper;
+
+  // src/TextWrapper.ts
   class TextWrapper {
     constructor(component) {
       this.root = document.createTextNode(component);
     }
   }
-  class Component {
-    constructor() {
-      this.props = Object.create(null);
-      this.children = [];
-      this._root = null;
-    }
-    setAttribute(name, value) {
-      this.props[name] = value;
-    }
-    appendChild(component) {
-      this.children.push(component);
-    }
-    render() {
-      throw new Error("Component need render");
-    }
-    get root() {
-      if (!this._root) {
-        this._root = this.render().root;
-      }
-      return this._root;
-    }
-  }
+  var TextWrapper_default = TextWrapper;
+
+  // src/index.ts
   function createElement(type, attributes, ...children) {
     let e;
     if (typeof type === "string") {
-      e = new ElementWrapper(type);
+      e = new ElementWrapper_default(type);
     } else {
       e = new type();
     }
@@ -51,7 +35,7 @@
     function insertChild(children2) {
       for (let child of children2) {
         if (typeof child === "string") {
-          child = new TextWrapper(child);
+          child = new TextWrapper_default(child);
         }
         if (typeof child === "object" && child instanceof Array) {
           insertChild(child);
@@ -68,7 +52,7 @@
   }
 
   // main.tsx
-  class MyComponent extends Component {
+  class MyComponent extends defautl {
     render() {
       return /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "my component"), this.children);
     }
