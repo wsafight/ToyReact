@@ -1,6 +1,6 @@
-import {createElement,render,Component} from './src'
+import {createElement,render,ToyComponent} from './src'
 
-class MyComponent extends Component{
+class MyComponent extends ToyComponent{
     render(){
         return <div>
             <h1>my component</h1>

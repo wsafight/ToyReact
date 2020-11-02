@@ -1,37 +1,33 @@
+import ToyComponent from "./ToyComponent";
 import ElementWrapper from "./ElementWrapper";
-import TextWrapper from "./TextWrapper";
+import { insertChild } from "./utils";
+import { RENDER_TO_DOM } from "./const";
 
-export {default as Component} from './Component'
 
 export function createElement(type, attributes, ...children) {
-    let e;
-    if (typeof type === 'string') {
-        e = new ElementWrapper(type)
-    } else {
-        e = new type;
-    }
-    for (let p in attributes) {
-        e.setAttribute(p, attributes[p]);
-    }
+  let e;
+  if (typeof type === 'string') {
+    e = new ElementWrapper(type)
+  } else {
+    e = new type;
+  }
+  for (let p in attributes) {
+    e.setAttribute(p, attributes[p]);
+  }
 
-    function insertChild(children) {
-        for (let child of children) {
-            if (typeof child === 'string') {
-                child = new TextWrapper(child)
-            }
-            if (Array.isArray(child)) {
-                insertChild(child)
-            } else {
-                e.appendChild(child);
-            }
-        }
-    }
+  insertChild(e, children)
 
-    insertChild(children)
-
-    return e;
+  return e;
 }
 
-export function render(component, parentElement) {
-    parentElement.appendChild(component.root)
+export function render(component: ToyComponent, parentElement: HTMLElement) {
+  const range = document.createRange()
+  range.setStart(parentElement, 0)
+  range.setEnd(parentElement, parentElement.childNodes.length)
+  range.deleteContents()
+  component[RENDER_TO_DOM](range)
+}
+
+export {
+  ToyComponent
 }
