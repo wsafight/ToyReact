@@ -19,7 +19,7 @@ export function createElement(type, attributes, ...children) {
             if (typeof child === 'string') {
                 child = new TextWrapper(child)
             }
-            if (typeof child === 'object' && child instanceof Array) {
+            if (Array.isArray(child)) {
                 insertChild(child)
             } else {
                 e.appendChild(child);
