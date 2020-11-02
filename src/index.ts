@@ -1,7 +1,7 @@
 import ElementWrapper from "./ElementWrapper";
 import TextWrapper from "./TextWrapper";
 
-export {defautl as Component} from './Component'
+export {default as Component} from './Component'
 
 export function createElement(type, attributes, ...children) {
     let e;
