@@ -13,6 +13,11 @@ class Component {
   protected range: any = null
   private _vdom: any = null
 
+  constructor(props?: any) {
+    this.props = props ?? Object.create(null)
+  }
+
+
   setAttribute(name, value) {
     this.props[name] = value;
   }

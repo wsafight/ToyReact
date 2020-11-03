@@ -9,7 +9,7 @@ class ElementWrapper extends Component {
   }
 
   get vdom () {
-    this.vchildren = this.children.map(child => child.vdom)
+    this.vchildren = this.children.filter(Boolean).map(child => child.vdom)
     return this
   }
 

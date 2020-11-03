@@ -58,7 +58,7 @@ export function updateNode(oldNode: ComponentNode, newNode: ComponentNode) {
   if (!newChildren?.length) {
     return
   }
-  let tailRange = oldChildren[oldChildren.length - 1]._range
+  let tailRange = oldChildren[oldChildren.length - 1].range
 
   for (let i = 0; i < newChildren.length; i++) {
     const newChild = newChildren[i]
