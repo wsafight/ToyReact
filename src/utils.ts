@@ -1,5 +1,4 @@
 import { RENDER_TO_DOM, textNode } from "./const";
-import TextWrapper from "./TextWrapper";
 
 interface ComponentNode {
   /** 组件类型 */
@@ -105,20 +104,3 @@ export function replaceContent(range, node) {
   range.setEndAfter(node)
 }
 
-/**
- * 插入孩子节点
- * @param children
- */
-export function insertChild(e: HTMLElement, children: any[]) {
-  for (let child of children) {
-    if (typeof child === 'string') {
-      child = new TextWrapper(child)
-    }
-
-    if (children === null) {
-      continue
-    }
-
-    Array.isArray(child) ? insertChild(e, child) : e.appendChild(child)
-  }
-}

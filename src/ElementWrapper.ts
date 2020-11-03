@@ -1,8 +1,8 @@
-import ToyComponent from "./ToyComponent";
+import Component from "./Component";
 import {replaceContent} from "./utils";
 import { RENDER_TO_DOM } from "./const";
 
-class ElementWrapper extends ToyComponent {
+class ElementWrapper extends Component {
   protected vchildren: any[]
   constructor(protected type: string) {
     super()

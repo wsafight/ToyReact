@@ -3,5 +3,5 @@ require('esbuild').build({
   jsxFactory: 'createElement',
   bundle: true,
   target: 'es6',
-  outfile: 'dist/main.js',
+  outfile: 'dist/main.min.js',
 }).catch(() => process.exit(1))

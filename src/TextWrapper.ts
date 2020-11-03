@@ -1,8 +1,8 @@
-import ToyComponent from "./ToyComponent";
+import Component from "./Component";
 import { replaceContent } from "./utils";
 import { RENDER_TO_DOM, textNode } from "./const";
 
-class TextWrapper extends ToyComponent {
+class TextWrapper extends Component {
   private type: Symbol = textNode;
   protected content: string;
 

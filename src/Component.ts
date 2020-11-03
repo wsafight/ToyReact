@@ -1,7 +1,7 @@
 import { RENDER_TO_DOM } from "./const";
 import { mergeState, updateNode } from "./utils";
 
-class ToyComponent {
+class Component {
   /**
    * 组件属性
    * @protected
@@ -52,4 +52,4 @@ class ToyComponent {
   }
 }
 
-export default ToyComponent
+export default Component
